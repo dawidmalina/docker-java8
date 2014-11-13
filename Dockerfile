@@ -13,8 +13,9 @@ ENV JDK_BUILD_VERSION b17
 RUN yum -y install curl
 
 # download jdk
-RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/$JDK_VERSION-$JDK_BUILD_VERSION/jdk-$JDK_VERSION-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie'
-RUN rpm -i jdk-$JDK_VERSION-linux-x64.rpm && rm -f jdk-$JDK_VERSION-linux-x64.rpm
+RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/$JDK_VERSION-$JDK_BUILD_VERSION/jdk-$JDK_VERSION-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie' && \
+    rpm -i jdk-$JDK_VERSION-linux-x64.rpm && \
+    rm -f jdk-$JDK_VERSION-linux-x64.rpm
 
 # set java home
 ENV JAVA_HOME /usr/java/default
@@ -24,6 +25,3 @@ RUN yum clean all
 
 # default command
 CMD ["java"]
-
-# clean packages
-RUN yum clean all
