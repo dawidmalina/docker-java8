@@ -10,7 +10,7 @@ ENV JDK_VERSION 8u25
 ENV JDK_BUILD_VERSION b17
 
 # install curl
-RUN yum -y update && yum -y install curl
+RUN yum -y install curl
 
 # download jdk
 RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/$JDK_VERSION-$JDK_BUILD_VERSION/jdk-$JDK_VERSION-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie'
